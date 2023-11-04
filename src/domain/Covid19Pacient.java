@@ -7,16 +7,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Set;
+
+import factory.SymptomFactory;
 import iterator.Covid19PacientIterator;
 
 public class Covid19Pacient {
 	private String  name; 
 	private int age;
 	private Map<Symptom,Integer> symptoms=new HashMap<Symptom,Integer>();
+	private SymptomFactory symptomFactory;
 
-	public Covid19Pacient(String name, int years) {
+	public Covid19Pacient(String name, int years, SymptomFactory sf) {
 		this.name = name;
 		this.age = years;
+		symptomFactory=sf;
 	}
 	
 	public String getName() {
@@ -56,7 +60,7 @@ public class Covid19Pacient {
 	public Symptom addSymptomByName(String symptom, Integer w){
 		Symptom s=getSymptomByName(symptom);
 		if (s==null) {
-			s=createSymptom(symptom); 
+			s=symptomFactory.createSymptom(symptom); 
 			symptoms.put(s,w);		
 		}
 		return s;
@@ -92,7 +96,7 @@ public class Covid19Pacient {
 		return impact;
 	}
 	
-	private Symptom createSymptom(String symptomName) {
+	/*private Symptom createSymptom(String symptomName) {
 	    List<String> impact5 = Arrays.asList("fiebre", "tos seca", "astenia","expectoracion");
 	    List<Double> index5 = Arrays.asList(87.9, 67.7, 38.1, 33.4);
 	    List<String> impact3 = Arrays.asList("disnea", "dolor de garganta", "cefalea","mialgia","escalofrios");
@@ -118,6 +122,6 @@ public class Covid19Pacient {
 	    }
 	    return null;		
 		
-	}
+	}*/
 }
 

@@ -1,11 +1,12 @@
 package adapter2;
 
 import domain.Covid19Pacient;
+import factory.SymptomFactory;
 
 public class Main {
 
 	public static void main(String[] args) {
-		Covid19Pacient pacient=new Covid19Pacient("aitor", 35);
+		Covid19Pacient pacient=new Covid19Pacient("aitor", 35, new SymptomFactory());
 		
 		pacient.addSymptomByName("disnea", 2);
 		pacient.addSymptomByName("cefalea", 1);
