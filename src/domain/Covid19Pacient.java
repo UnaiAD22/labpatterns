@@ -68,6 +68,9 @@ public class Covid19Pacient {
 		if (s!=null) symptoms.remove(s);
 		return s;
 	}
+	public Iterator iterator() {
+		return new Covid19PacientIterator(this.symptoms.keySet());
+	}
 	
 	public double covidImpact() {
 		double afection=0;
