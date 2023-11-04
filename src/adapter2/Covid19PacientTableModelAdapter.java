@@ -12,6 +12,7 @@ public class Covid19PacientTableModelAdapter extends AbstractTableModel {
 	  protected Covid19Pacient pacient;
 	  protected String[] columnNames =
 	    new String[] {"Symptom", "Weight" };
+	  Vector<Symptom> symptoms = new Vector<Symptom>();
 
 	  public Covid19PacientTableModelAdapter(Covid19Pacient p) {
 	    this.pacient=p;
